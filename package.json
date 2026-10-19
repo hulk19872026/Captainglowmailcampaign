@@ -1,0 +1,17 @@
+{
+  "name": "captain-glow-marketing-center",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Captain Glow Mini Golf Marketing Center: customers, branded email and text campaigns, leads and analytics.",
+  "scripts": {
+    "install:all": "npm --prefix backend install && npm --prefix frontend install",
+    "build": "npm --prefix frontend install && npm --prefix frontend run build && npm --prefix backend install && npm --prefix backend run build",
+    "start": "npm --prefix backend start",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "admin": "npm --prefix backend run admin --"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
