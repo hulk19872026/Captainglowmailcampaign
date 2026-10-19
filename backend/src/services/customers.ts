@@ -145,7 +145,7 @@ export async function queueAudience(client: PoolClient, campaignId: number, occu
   // Anyone still waiting who no longer qualifies (unsubscribed, disabled, removed from group…) is skipped.
   await client.query(
     `UPDATE campaign_recipients r SET status = 'skipped', last_error = 'No longer eligible'
-     WHERE r.campaign_id = $1 AND r.occurrence = $2 AND r.status = 'queued'
+     WHERE r.campaign_id = $1 AND r.occurrence = $2 AND r.channel = $3 AND r.status = 'queued'
        AND NOT EXISTS (SELECT 1 FROM customers c WHERE c.id = r.customer_id AND ${where})`,
     [campaignId, occurrence, channel, ...params],
   );
